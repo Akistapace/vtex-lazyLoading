@@ -61,7 +61,7 @@ You can use the following classes to custom style:
 ```css
 .--lazy-waiting   { /* Uses when element is loading */ }
 .--lazy-loaded    { /* Uses when element is visible */ }
-.--lazy-triggered { /* Uses when element has an error */ }
+.--lazy-triggered { /* Uses when element is triggered */ }
 ```
 
 ## License
