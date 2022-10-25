@@ -71,33 +71,4 @@ function LazyLoadInstance(_element, _options) {
 // ====================================================== //
 // ===================== UTILIZAÇÃO ===================== //
 // ====================================================== //
-const lazyload = new LazyLoadInstance('[data-lazy]');
-
-// Só para testar o método update
-document.querySelector('#more-items').addEventListener('click', ()=> {
-    const template = `
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        <div data-lazy="true">
-            <noscript>
-                <img src="https://via.placeholder.com/700x400" alt=""/>
-            </noscript>
-        </div>
-    `
-    let itens = 10
-    for (let index = 0; index < itens; index++) {
-        document.body.insertAdjacentHTML('beforeend', template)
-    }
-});
-
-document.querySelector('#destroy-all').addEventListener('click', ()=> {
-    lazyload.destroy()
-})
-document.querySelector('#destroy-specific').addEventListener('click', ()=> {
-    lazyload.destroyInElement(document.querySelector('#teste'))
-})
-document.querySelector('#reinit').addEventListener('click', ()=> {
-    lazyload.reinit();
-})
-document.querySelector('#update').addEventListener('click', ()=> {
-    lazyload.update()
-})
+// const lazyload = new LazyLoadInstance('[data-lazy]');
