@@ -67,8 +67,4 @@ function LazyLoadInstance(_element, _options) {
     this.runnerLazyload()
 }
 
-
-// ====================================================== //
-// ===================== UTILIZAÇÃO ===================== //
-// ====================================================== //
-// const lazyload = new LazyLoadInstance('[data-lazy]');
+module.exports = LazyLoadInstance

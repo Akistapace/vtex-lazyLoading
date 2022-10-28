@@ -1,0 +1,29 @@
+{
+  "name": "vtex-lazyloading",
+  "version": "1.0.0",
+  "description": "Plugin para lazyload em componentes e imagens de forma simples e com muito controle\"",
+  "main": "lazyloading.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akistapace/vtex-lazyLoading.git"
+  },
+  "keywords": [
+    "vtex",
+    "lazyloading",
+    "lazy",
+    "load",
+    "vtex",
+    "lazyload",
+    "vtex",
+    "components"
+  ],
+  "author": "Fernando Aquistapace",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Akistapace/vtex-lazyLoading/issues"
+  },
+  "homepage": "https://github.com/Akistapace/vtex-lazyLoading#readme"
+}
