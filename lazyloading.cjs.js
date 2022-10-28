@@ -1,4 +1,4 @@
-export default function LazyLoadInstance(_options) {
+function LazyLoadInstance(_options) {
     this.lazyElements = document.querySelectorAll(_options.targets);
     this.options = {
         root:       _options.root || null,
@@ -66,3 +66,5 @@ export default function LazyLoadInstance(_options) {
     // Executa o observer nos elementos na primeira vez
     this.runnerLazyload()
 }
+
+module.exports = LazyLoadInstance
