@@ -4,7 +4,7 @@ A [vtex-lazyload](https://github.com/Zeindelf/vtex-lazyload) based plugin for la
 
 It also works for other platforms and projects.
 ##  :mag:Demo
-https://codepen.io/fcorebiz/pen/yLELxNz
+https://codepen.io/akistapace/pen/ExRjgYw
 
 ## :white_check_mark:Instalation
 `$ npm install vtex-lazyloading` or download the file lazyloading.js
@@ -34,7 +34,7 @@ For Vtex components
 ```js
 const lazyload = new LazyLoadInstance({
     root: null; //document.querySelector('.element'),
-    target: '[data-lazy]',
+    targets: '[data-lazy]',
     margin: '400px 20px'
 });
 ```
