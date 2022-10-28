@@ -18,6 +18,7 @@ https://codepen.io/fcorebiz/pen/yLELxNz
 For images and Iframes 
 ```html
 <img data-lazy="https://via.placeholder.com/700x400" alt="placeholder"/></noscript>
+
 <iframe data-lazy="https://www.youtube.com/embed/Y4goaZhNt4k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ```
 For Vtex components
@@ -63,6 +64,8 @@ You can use the following classes to custom style:
 .--lazy-loaded    { /* Uses when element is visible */ }
 .--lazy-triggered { /* Uses when element is tracked */ }
 ```
+
+Note: If the element is inside a parent element that is hidden, the lazy load will only occur when the parent element is visible, this is good for when we have images in menus.
 
 ## License
 Open source licensed under the [MIT license](https://opensource.org/licenses/MIT).
