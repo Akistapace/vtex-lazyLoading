@@ -15,6 +15,7 @@ https://codepen.io/fcorebiz/pen/yLELxNz
 
 ## :wrench:Usage
 
+#### HTML
 For images and Iframes 
 ```html
 <img data-lazy="https://via.placeholder.com/700x400" alt="placeholder"/></noscript>
@@ -23,29 +24,27 @@ For images and Iframes
 ```
 For Vtex components
 ```html
-<div class="your-class" data-lazy="true">
-  <noscript><vtex:contentPlaceHolder id="Main-Banner" /></noscript>
-</div>
-```
-
-For other elements 
-```html
-<div class="your-class" data-lazy="true">
+<div class="your-parentElement" data-lazy="true">
   <noscript>
-    <div class="your-other-class">
-      <img src="https://via.placeholder.com/700x400" alt="placeholder"/>
-    </div>
+    ...
   </noscript>
 </div>
 ```
-
+#### Javascript
 ```js
-const lazyload = new LazyLoadInstance('[data-lazy]', {
-    root: null,
-    margin: '400px 20px', 
-    threshold: 0
+const lazyload = new LazyLoadInstance({
+    root: null; //document.querySelector('.element'),
+    target: '[data-lazy]',
+    margin: '400px 20px'
 });
 ```
+
+| Params      | Example | Description |
+| ----------- | ------- | ----------- |
+| targets   | _#id_, _.class_, _[atributes]_ | define all the lazy elements        |
+| root        | element | the parent container to trigger the lazy elements, if null is the entire viewport / window.      |
+| margin      | _10px_ or _10%_ | is the distance in pixels or percentage for the element to be loaded before it becomes visible in the window       |
+
 
 **Methods**
 ```js
@@ -54,7 +53,12 @@ const lazyload = new LazyLoadInstance('[data-lazy]', {
  lazyload.destroy();
  lazyload.destroyInElement(document.querySelector('#test'))
 ```
-
+| Params             | Description |
+| ------------------ | ----------- |
+| update()           | Updates and picks up new items on the DOM |
+| reinit()           | Restart the lazy loader if it has stopped with **destroy** or **destroyInElement** |
+| destroy()          | Destroys the lazy loader instance in all elements |
+| destroyInElement() | Destroy the lazy load in an specific element |
 
 **Custom styles**
 

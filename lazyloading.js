@@ -1,9 +1,9 @@
-function LazyLoadInstance(_element, _options) {
-    this.lazyElements = document.querySelectorAll(_element);
+function LazyLoadInstance(_options) {
+    this.lazyElements = document.querySelectorAll(_options.targets);
     this.options = {
-        root:       _options || null,
-        rootMargin: _options || '300px 20px',
-        threshold:  _options || 0
+        root:       _options.root || null,
+        rootMargin: _options.margin || '300px 20px',
+        threshold:  _options.threshold || 0
     };
 
     const hasIntersect = ()=> 'IntersectionObserver' in window ? true : false;
@@ -55,12 +55,12 @@ function LazyLoadInstance(_element, _options) {
     this.destroy = ()=> hasIntersect()    ? this.lazyInstance.disconnect()   : console.log('Is not possible to stopAllLazyLoading');
     this.destroyInElement    = (_el)=> hasIntersect() ? this.lazyInstance.unobserve(_el) : console.log('Is not possible to stopLazyElement');
     this.update = ()=> {
-        this.lazyElements = document.querySelectorAll(`${_element}:not(.--lazy-triggered)`);
+        this.lazyElements = document.querySelectorAll(`${_options.targets}:not(.--lazy-triggered)`);
         this.runnerLazyload();
     }
     
     this.reinit = ()=> {
-        this.lazyElements = document.querySelectorAll(`${_element}`);
+        this.lazyElements = document.querySelectorAll(`${_options.targets}`);
         this.runnerLazyload();
     } 
     // Executa o observer nos elementos na primeira vez
