@@ -3,17 +3,17 @@
 A [vtex-lazyload](https://github.com/Zeindelf/vtex-lazyload) based plugin for lazy loading Vtex components, other elements and images.
 
 It also works for other platforms and projects.
-##  :mag:Demo:mag:
+##  :mag:Demo
 https://codepen.io/fcorebiz/pen/yLELxNz
 
-## :white_check_mark:Instalation:white_check_mark:
+## :white_check_mark:Instalation
 `$ npm install vtex-lazyloading` or download the file lazyloading.js
 
 ```html
 <script type="text/javascript" src="/arquivos/lazyloading.min.js"></script>
 ```
 
-## :wrench:Usage:wrench:
+## :wrench:Usage
 
 For images and Iframes 
 ```html
