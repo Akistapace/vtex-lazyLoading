@@ -32,8 +32,9 @@ For Vtex components
 ```
 #### Javascript
 ```js
-const lazyload = new LazyLoadInstance({
-    root: null; //document.querySelector('.element'),
+import vtexLazyload from "vtex-lazyloading";
+const lazyload = new vtexLazyload({
+    root: null, //document.querySelector('.element'),
     targets: '[data-lazy]',
     margin: '400px 20px'
 });

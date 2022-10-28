@@ -11,7 +11,6 @@ function LazyLoadInstance(_options) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const element = entry.target;
-                console.log('Loaded', element);
                 if (element.tagName.toLowerCase() == 'img' 
                 || element.tagName.toLowerCase() == 'iframe') {
                     element.src = element.dataset.lazy;
@@ -32,7 +31,6 @@ function LazyLoadInstance(_options) {
 
     hasIntersect() ? this.lazyInstance = new IntersectionObserver(callback, this.options) : this.lazyInstance = ''
     this.runnerLazyload = ()=> {
-        console.log('runnerLazyload');
         if(hasIntersect()) {
             this.lazyElements.forEach(element => {
                 element.classList.add('--lazy-triggered', '--lazy-waiting');
