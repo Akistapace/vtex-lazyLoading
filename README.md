@@ -7,14 +7,14 @@
 <div align="center">
   Give me a star on this project if it has been helpful.
 
-  [![Star on GitHub](https://img.shields.io/github/stars/Akistapace/vtex-lazyLoading.svg?style=social)](https://github.com/Akistapace/vtex-lazyLoading/stargazers) [![Npm package daily downloads](https://badgen.net/npm/dd/vtex-lazyloading)](npmjs.com/package/vtex-lazyloading)
+  [![GitHub stars](https://badgen.net/github/stars/Akistapace/vtex-lazyloading)](https://GitHub.com/Akistapace/vtex-lazyloading/stargazers/) [![Npm package daily downloads](https://badgen.net/npm/dd/vtex-lazyloading)](npmjs.com/package/vtex-lazyloading)
 
   
+</div>
+
 A [vtex-lazyload](https://github.com/Zeindelf/vtex-lazyload) based plugin for lazy loading Vtex components, other elements and images.
 
 It also works for other platforms and projects.
-</div>
-
 ##  :mag:Demo
 https://codepen.io/akistapace/pen/ExRjgYw
 
