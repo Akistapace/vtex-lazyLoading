@@ -36,23 +36,36 @@ import vtexLazyload from "vtex-lazyloading";
 const lazyload = new vtexLazyload({
     root: null, //document.querySelector('.element'),
     targets: '[data-lazy]',
-    margin: '400px 20px'
+    margin: '300px 20px',
+    onRender: (e)=> {
+        console.log('Renderizando');
+        if (e.classList.contains('target')) {
+            e.style.opacity = 0.5;
+        }
+    },
 });
 ```
 
 | Params      | Example | Description |
 | ----------- | ------- | ----------- |
 | targets   | _#id_, _.class_, _[atributes]_ | define all the lazy elements        |
-| root        | element | the parent container to trigger the lazy elements, if null is the entire viewport / window.      |
-| margin      | _10px_ or _10%_ | is the distance in pixels or percentage for the element to be loaded before it becomes visible in the window       |
+| root        | _null_, _#id_, _.class_, _[atributes]_ | the parent container to trigger the lazy elements, if null is the entire viewport / window.      |
+| margin      | _10px_ | is the distance in pixels for the element to be loaded before it becomes visible in the window       |
+| onRender      | function | Executes a callback when the element is loaded  |
 
+**Events**
+```js
+onRender: (e)=> {
+    console.log('Rendering element');
+}
+```
 
 **Methods**
 ```js
  lazyload.update();
  lazyload.reinit();
  lazyload.destroy();
- lazyload.destroyInElement(document.querySelector('#test'))
+ lazyload.destroyInElement('#test');
 ```
 | Params             | Description |
 | ------------------ | ----------- |
