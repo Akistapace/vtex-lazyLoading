@@ -1,5 +1,5 @@
 
-# :rocket: Vtex Lazyloading :rocket:
+# :rocket:Vtex Lazyloading:rocket:
 A [vtex-lazyload](https://github.com/Zeindelf/vtex-lazyload) based plugin for lazy loading Vtex components, other elements and images.
 
 It also works for other platforms and projects.
@@ -84,6 +84,9 @@ You can use the following classes to custom style:
 ```
 
 Note: If the element is inside a parent element that is hidden, the lazy load will only occur when the parent element is visible, this is good for when we have images in menus.
+
+## :pencil2:Author
+Fernando Oliveira Aquistapace - [Linkedin]([dsdadsa](https://www.linkedin.com/in/fernando-aquistapace-33a414165/))
 
 ## License
 Open source licensed under the [MIT license](https://opensource.org/licenses/MIT).
