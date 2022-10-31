@@ -15,10 +15,6 @@
         "browser": {
           "default": "./lazyloading.min.js"
         }
-    },
-    "lazyLoading": {
-        "import": "./lazyloading.min.js",
-        "require": "./lazyloading.cjs.min.js"
     }
   },
   "keywords": [
