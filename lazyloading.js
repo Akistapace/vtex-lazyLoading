@@ -83,7 +83,7 @@ export default function LazyLoadInstance(_options) {
           }
         }, 20);
     }
-    !hasIntersect() ? this.lazyInstance = new IntersectionObserver(callback, this.options) : this.lazyInstance = '';
+    hasIntersect() ? this.lazyInstance = new IntersectionObserver(callback, this.options) : this.lazyInstance = '';
     
     // ====================================================== //
     // ====================== FALLBACKS ===================== //
@@ -128,7 +128,7 @@ export default function LazyLoadInstance(_options) {
         }
     }
     this.runnerLazyload = ()=> {
-        if(!hasIntersect()) {
+        if(hasIntersect()) {
             this.lazyElements.forEach(el => {
                 el.classList.contains('--lazy-triggered')
                 ? (el.classList.add('--lazy-triggered'))
@@ -140,13 +140,13 @@ export default function LazyLoadInstance(_options) {
             this.fallbackLazyload()
         }
     }
-    this.destroy = ()=> !hasIntersect() ? this.lazyInstance.disconnect() : this.fallbackRunner(false) ;
+    this.destroy = ()=> hasIntersect() ? this.lazyInstance.disconnect() : this.fallbackRunner(false) ;
     this.destroyInElement = (_el)=> {
-        !hasIntersect() ? this.lazyInstance.unobserve(document.querySelector(_el)) : this.fallbackDestroyInElement(_el)
+        hasIntersect() ? this.lazyInstance.unobserve(document.querySelector(_el)) : this.fallbackDestroyInElement(_el)
     }
     this.update = ()=> {
         this.lazyElements = document.querySelectorAll(`${_options.targets}`);
-        !hasIntersect() ? this.runnerLazyload() : this.fallbackLazyload(true);
+        hasIntersect() ? this.runnerLazyload() : this.fallbackLazyload(true);
     }    
     this.reinit = ()=> {
         let checkStopedLazys = document.querySelectorAll('[data-stoped-lazy]');
@@ -158,7 +158,7 @@ export default function LazyLoadInstance(_options) {
         }
 
         this.lazyElements = document.querySelectorAll(`${_options.targets}`);
-        !hasIntersect() ? this.runnerLazyload() : this.fallbackLazyload(true);
+        hasIntersect() ? this.runnerLazyload() : this.fallbackLazyload(true);
     } 
     this.runnerLazyload();
 }
