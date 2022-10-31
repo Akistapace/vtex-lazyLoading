@@ -34,11 +34,11 @@ For Vtex components
 ```js
 import vtexLazyload from "vtex-lazyloading";
 const lazyload = new vtexLazyload({
-    root: null, //document.querySelector('.element'),
+    root: null,
     targets: '[data-lazy]',
     margin: '300px 20px',
     onRender: (e)=> {
-        console.log('Renderizando');
+        console.log('Rendering');
         if (e.classList.contains('target')) {
             e.style.opacity = 0.5;
         }
