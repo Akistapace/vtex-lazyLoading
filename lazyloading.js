@@ -1,7 +1,10 @@
-export default function LazyLoadInstance(_options) {
-    this.lazyElements = document.querySelectorAll(_options.targets);
+function LazyLoadInstance(_options) {
+    this.root =  _options.root != null ? document.querySelector(_options.root) : null,
+    this.getElementsInRoot = ()=> this.root != null ? `${_options.root} ${_options.targets}` : _options.targets
+    this.lazyElements = document.querySelectorAll(this.getElementsInRoot());
+    console.log('el',this.lazyElements);
     this.options = {
-        root: _options.root != null ? document.querySelector(_options.root) : null,
+        root: this.root,
         rootMargin: _options.margin || '300px 20px',
         // threshold:  _options.threshold || 0
     };
@@ -39,10 +42,9 @@ export default function LazyLoadInstance(_options) {
             }
         });
     };
-    const placeholder = {
-        is_image: (el)=> el.tagName.toLowerCase() == 'img' ? true : false,
-        set_placeholder: (el)=> el.src = 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=',
-    }
+
+    this.placeholder = (el)=> el.src = 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='
+
     const lazyload = ()=> {
         if(lazyloadThrottleTimeout) { clearTimeout(lazyloadThrottleTimeout)  }    
 
@@ -110,6 +112,7 @@ export default function LazyLoadInstance(_options) {
     this.fallbackLazyload = ()=> {      
         this.lazyElements.forEach((element)=> {
             element.classList.contains('--lazy-triggered') ? element.classList.add('--lazy-triggered') : element.classList.add('--lazy-triggered', '--lazy-waiting')
+            _options.placeholder ? set_placeholder(element) : ''
         });
 
         this.fallbackRunner(true);
@@ -130,6 +133,7 @@ export default function LazyLoadInstance(_options) {
     this.runnerLazyload = ()=> {
         if(hasIntersect()) {
             this.lazyElements.forEach(el => {
+                _options.placeholder ? set_placeholder(element) : ''
                 el.classList.contains('--lazy-triggered')
                 ? (el.classList.add('--lazy-triggered'))
                 : (el.classList.add('--lazy-triggered', '--lazy-waiting'))
@@ -137,7 +141,7 @@ export default function LazyLoadInstance(_options) {
                 this.lazyInstance.observe(el);
             });
         } else {
-            this.fallbackLazyload()
+            this.fallbackLazyload();
         }
     }
     this.destroy = ()=> hasIntersect() ? this.lazyInstance.disconnect() : this.fallbackRunner(false) ;
@@ -145,11 +149,11 @@ export default function LazyLoadInstance(_options) {
         hasIntersect() ? this.lazyInstance.unobserve(document.querySelector(_el)) : this.fallbackDestroyInElement(_el)
     }
     this.update = ()=> {
-        this.lazyElements = document.querySelectorAll(`${_options.targets}`);
+        this.lazyElements =  document.querySelectorAll(this.getElementsInRoot());
         hasIntersect() ? this.runnerLazyload() : this.fallbackLazyload(true);
     }    
     this.reinit = ()=> {
-        let checkStopedLazys = document.querySelectorAll('[data-stoped-lazy]');
+        let checkStopedLazys = document.querySelectorAll(this.root != null ? _options.root+' [data-stoped-lazy]' : '[data-stoped-lazy]');
         if(checkStopedLazys.length > 0) {
             checkStopedLazys.forEach(el => {
                 el.setAttribute('data-lazy', el.dataset.stopedLazy);
@@ -157,7 +161,7 @@ export default function LazyLoadInstance(_options) {
             });
         }
 
-        this.lazyElements = document.querySelectorAll(`${_options.targets}`);
+        this.lazyElements = document.querySelectorAll(this.getElementsInRoot());
         hasIntersect() ? this.runnerLazyload() : this.fallbackLazyload(true);
     } 
     this.runnerLazyload();
