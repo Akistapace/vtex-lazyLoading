@@ -144,13 +144,11 @@ export default function LazyLoadInstance(_options) {
     // ====================================================== //
 
 
-    !hasIntersect() ? this.lazyInstance = new IntersectionObserver(callback, this.options) : this.lazyInstance = '';
+    hasIntersect() ? this.lazyInstance = new IntersectionObserver(callback, this.options) : this.lazyInstance = '';
     this.runnerLazyload = ()=> {
-        if(!hasIntersect()) {
+        if(hasIntersect()) {
             this.lazyElements.forEach(el => {
-                if (checkTagName(element, 'img')) {
-                    _options.placeholder ? placeholder(el) : '';
-                }
+                checkTagName(el, 'img') ? (_options.placeholder ? placeholder(el) : '') : ''
 
                 el.classList.contains('--lazy-triggered')
                 ? (el.classList.add('--lazy-triggered'))
@@ -166,13 +164,13 @@ export default function LazyLoadInstance(_options) {
     // ====================================================== //
     // ======================= Methods ====================== //
     // ====================================================== //
-    this.destroy = ()=> !hasIntersect() ? this.lazyInstance.disconnect() : this.fallbackRunnerListeners(false) ;
+    this.destroy = ()=> hasIntersect() ? this.lazyInstance.disconnect() : this.fallbackRunnerListeners(false) ;
     this.destroyInElement = (_el)=> {
-        !hasIntersect() ? this.lazyInstance.unobserve(document.querySelector(_el)) : this.fallbackDestroyInElement(_el)
+        hasIntersect() ? this.lazyInstance.unobserve(document.querySelector(_el)) : this.fallbackDestroyInElement(_el)
     }
     this.update = ()=> {
         this.lazyElements =  document.querySelectorAll(this.getElementsInRoot());
-        !hasIntersect() ? this.runnerLazyload() : this.fallbackLazyload(true);
+        hasIntersect() ? this.runnerLazyload() : this.fallbackLazyload(true);
     }    
     this.reinit = ()=> {
         let checkStopedLazys = document.querySelectorAll(this.root != null ? _options.root+' [data-stoped-lazy]' : '[data-stoped-lazy]');
@@ -184,7 +182,7 @@ export default function LazyLoadInstance(_options) {
         }
 
         this.lazyElements = document.querySelectorAll(this.getElementsInRoot());
-        !hasIntersect() ? this.runnerLazyload() : this.fallbackLazyload(true);
+        hasIntersect() ? this.runnerLazyload() : this.fallbackLazyload(true);
     } 
     // ====================================================== //
 

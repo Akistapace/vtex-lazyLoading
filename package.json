@@ -13,7 +13,7 @@
   "exports": {
     ".": {
         "browser": {
-          "default": "./lazyloading.min.js"
+          "default": "./lazyloading.esm.min.js"
         }
     }
   },
