@@ -1,4 +1,4 @@
-export default function LazyLoadInstance(_options) {
+export default function VtexLazyload(_options) {
     // ====================================================== //
     // ======================= OPTIONS ====================== //
     // ====================================================== //

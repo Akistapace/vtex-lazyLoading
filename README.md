@@ -26,7 +26,6 @@ https://codepen.io/akistapace/pen/ExRjgYw
 ```
 
 ## :wrench:Usage
-
 #### HTML
 For images and Iframes 
 ```html
@@ -41,6 +40,15 @@ For Vtex components
     ...
   </noscript>
 </div>
+```
+#### CDN
+You can put this CDN in your HTML
+```html
+<script src="https://cdn.jsdelivr.net/npm/vtex-lazyloading/lazyloading.min.js"></script>
+```
+And call it in your js file like this:point_down:
+```js
+let lazyload = new VtexLazyload({options}) 
 ```
 #### Javascript
 ```js

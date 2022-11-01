@@ -1,4 +1,4 @@
-function LazyLoadInstance(_options) {
+function VtexLazyload(_options) {
     // ====================================================== //
     // ======================= OPTIONS ====================== //
     // ====================================================== //
@@ -193,4 +193,4 @@ function LazyLoadInstance(_options) {
 
 };
 
-module.exports=LazyLoadInstance
+module.exports=VtexLazyload
