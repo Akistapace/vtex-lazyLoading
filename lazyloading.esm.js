@@ -2,6 +2,7 @@ export default function LazyLoadInstance(_options) {
     // ====================================================== //
     // ======================= OPTIONS ====================== //
     // ====================================================== //
+    this.rootElement
     this.root =  _options.root != null ? document.querySelector(_options.root) : null,
     this.getElementsInRoot = ()=> this.root != null ? `${_options.root} ${_options.targets}:not(.--lazy-loaded)` : _options.targets+':not(.--lazy-loaded)'
     this.lazyElements = document.querySelectorAll(this.getElementsInRoot());
