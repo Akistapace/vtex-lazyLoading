@@ -1,6 +1,6 @@
 <div align="center">
 
-# :rocket:Vtex Lazyloading:rocket:
+# :rocket:Vtex Lazyloading
 </div>
 
 
@@ -26,6 +26,37 @@ https://codepen.io/akistapace/pen/ExRjgYw
 ```
 
 ## :wrench:Usage
+
+#### Javascript
+#### CDN
+You can put this CDN in your HTML
+```html
+<script src="https://cdn.jsdelivr.net/npm/vtex-lazyloading/lazyloading.min.js"></script>
+```
+And call it in your js file like this:point_down:
+```js
+let lazyload = new VtexLazyload({options}) 
+```
+
+Or you can install this and export in your file
+```html
+npm i vtex-lazyload
+```
+
+```js
+import vtexLazyload from "vtex-lazyloading";
+const lazyload = new vtexLazyload({
+    root: null,
+    targets: '[data-lazy]',
+    margin: '300px 20px',
+    onRender: (e)=> {
+        console.log('Rendering');
+        if (e.classList.contains('target')) {
+            e.style.opacity = 0.5;
+        }
+    },
+});
+```
 #### HTML
 For images and Iframes 
 ```html
@@ -41,30 +72,8 @@ For Vtex components
   </noscript>
 </div>
 ```
-#### CDN
-You can put this CDN in your HTML
-```html
-<script src="https://cdn.jsdelivr.net/npm/vtex-lazyloading/lazyloading.min.js"></script>
-```
-And call it in your js file like this:point_down:
-```js
-let lazyload = new VtexLazyload({options}) 
-```
-#### Javascript
-```js
-import vtexLazyload from "vtex-lazyloading";
-const lazyload = new vtexLazyload({
-    root: null,
-    targets: '[data-lazy]',
-    margin: '300px 20px',
-    onRender: (e)=> {
-        console.log('Rendering');
-        if (e.classList.contains('target')) {
-            e.style.opacity = 0.5;
-        }
-    },
-});
-```
+
+
 
 | Params      | Example | Description |
 | ----------- | ------- | ----------- |
