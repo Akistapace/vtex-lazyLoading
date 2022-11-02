@@ -110,6 +110,7 @@ You can use the following classes to custom style:
 .--lazy-waiting   { /* Uses when element is loading */ }
 .--lazy-loaded    { /* Uses when element is visible */ }
 .--lazy-triggered { /* Uses when element is tracked */ }
+.--lazy-error     { /* Uses when element has an error */ }
 ```
 
 Note: If the element is inside a parent element that is hidden, the lazy load will only occur when the parent element is visible, this is good for when we have images in menus.
