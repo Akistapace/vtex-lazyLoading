@@ -6,7 +6,7 @@
   "module": "dist/lazyloading.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsup && tsc --emitDeclarationOnly && node scripts/fix-cjs-exports.js && node scripts/copy-compat.js",
+    "build": "tsup && tsc --emitDeclarationOnly && node scripts/fix-default-export.js && node scripts/copy-compat.js",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
