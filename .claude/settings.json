@@ -32,7 +32,18 @@
       "Bash(npm test *)",
       "Bash(gh --version)",
       "Bash(npm version *)",
-      "Bash(git tag *)"
+      "Bash(git tag *)",
+      "Bash(git config *)",
+      "Bash(git fetch *)",
+      "Bash(git ls-remote *)",
+      "Bash(curl -s \"https://api.github.com/repos/Akistapace/vtex-lazyLoading/actions/runs?per_page=5\")",
+      "Bash(sudo mkdir -p -m 755 /etc/apt/keyrings)",
+      "Bash(sudo -n true)",
+      "Bash(mkdir -p ~/.local/bin)",
+      "Bash(dpkg --print-architecture)",
+      "Bash(curl -sL \"https://api.github.com/repos/cli/cli/releases/latest\")",
+      "Bash(rm -rf /tmp/gh.tar.gz /tmp/gh_2.96.0_linux_amd64)",
+      "Bash(gh auth *)"
     ],
     "additionalDirectories": [
       "/home/fernando/projects/vtex-lazyLoading/docs/superpowers"
