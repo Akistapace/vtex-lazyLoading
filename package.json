@@ -9,7 +9,10 @@
     "build": "tsup && tsc --emitDeclarationOnly && node scripts/fix-default-export.js && node scripts/copy-compat.js",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preversion": "npm run typecheck",
+    "release": "npm version patch",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
