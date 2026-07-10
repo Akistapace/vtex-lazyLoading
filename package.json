@@ -2,9 +2,13 @@
   "name": "vtex-lazyloading",
   "version": "2.0.9",
   "description": "Plugin para lazyload em componentes e imagens de forma simples e com muito controle\"",
-  "main": "lazyloading.js",
-  "module": "lazyloading.esm.js",
+  "main": "dist/lazyloading.cjs.js",
+  "module": "dist/lazyloading.esm.js",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "build": "tsup && node scripts/copy-compat.js",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -13,11 +17,24 @@
   },
   "exports": {
     ".": {
-        "browser": {
-          "default": "./lazyloading.min.js"
-        }
+      "types": "./dist/index.d.ts",
+      "browser": {
+        "default": "./lazyloading.min.js"
+      },
+      "import": "./dist/lazyloading.esm.js",
+      "require": "./dist/lazyloading.cjs.js"
     }
   },
+  "files": [
+    "dist",
+    "lazyloading.js",
+    "lazyloading.min.js",
+    "lazyloading.cjs.js",
+    "lazyloading.cjs.min.js",
+    "lazyloading.esm.js",
+    "lazyloading.esm.min.js",
+    "README.md"
+  ],
   "keywords": [
     "vtex",
     "lazyloading",
@@ -33,5 +50,9 @@
   "bugs": {
     "url": "https://github.com/Akistapace/vtex-lazyLoading/issues"
   },
-  "homepage": "https://github.com/Akistapace/vtex-lazyLoading#readme"
+  "homepage": "https://github.com/Akistapace/vtex-lazyLoading#readme",
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^7.0.2"
+  }
 }
