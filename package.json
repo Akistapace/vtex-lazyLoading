@@ -1,6 +1,6 @@
 {
   "name": "vtex-lazyloading",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Plugin para lazyload em componentes e imagens de forma simples e com muito controle\"",
   "main": "dist/lazyloading.cjs.js",
   "module": "dist/lazyloading.esm.js",
