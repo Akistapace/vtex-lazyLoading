@@ -29,7 +29,10 @@
       "Bash(node -e \"const L = require\\('./lazyloading.cjs.min.js'\\); console.log\\('root cjs.min typeof:', typeof L\\)\")",
       "Bash(node -e \"import\\('./lazyloading.esm.js'\\).then\\(m => console.log\\('root esm typeof:', typeof m.default\\)\\)\")",
       "Bash(npm pack *)",
-      "Bash(npm test *)"
+      "Bash(npm test *)",
+      "Bash(gh --version)",
+      "Bash(npm version *)",
+      "Bash(git tag *)"
     ],
     "additionalDirectories": [
       "/home/fernando/projects/vtex-lazyLoading/docs/superpowers"
