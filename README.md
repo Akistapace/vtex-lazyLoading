@@ -57,6 +57,26 @@ const lazyload = new vtexLazyload({
     },
 });
 ```
+
+#### TypeScript
+Types are published alongside the package — no `@types` package needed.
+```ts
+import VtexLazyload, { VtexLazyloadOptions } from 'vtex-lazyloading';
+
+const options: VtexLazyloadOptions = {
+    root: null,
+    targets: '[data-lazy]',
+    margin: '300px 20px',
+    onRender: (e) => {
+        console.log('Rendering');
+        if (e.classList.contains('target')) {
+            e.style.opacity = 0.5;
+        }
+    },
+};
+
+const lazyload = new VtexLazyload(options);
+```
 #### HTML
 For images and Iframes 
 ```html
