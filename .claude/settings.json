@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rtk find *)",
+      "Bash(mkdir -p docs/superpowers/specs && date +%Y-%m-%d)",
+      "Bash(npm install *)",
+      "Bash(rtk tsc *)",
+      "Bash(rtk npx *)",
+      "Bash(npm ls *)",
+      "Bash(./node_modules/.bin/tsc --version)",
+      "Bash(./node_modules/.bin/tsc --emitDeclarationOnly)",
+      "Bash(node -e \"const L = require\\('./dist/lazyloading.cjs.js'\\); console.log\\(typeof L\\)\")",
+      "Bash(node -e \"import\\('./dist/lazyloading.esm.js'\\).then\\(m => console.log\\(typeof m.default\\)\\)\")",
+      "Bash(node -e \"const L = require\\('./dist/lazyloading.cjs.js'\\); console.log\\(typeof L, typeof L.default\\)\")",
+      "Bash(node -e \"const L = require\\('./dist/lazyloading.cjs.js'\\); console.log\\(typeof L\\); const l = Object.create\\(L.prototype\\); console.log\\('ctor ok:', typeof L === 'function'\\)\")",
+      "Bash(node -e \"const L = require\\('./dist/lazyloading.cjs.js'\\); console.log\\('typeof:', typeof L, 'name:', L.name\\)\")",
+      "Bash(node -e \"const m = require\\('./dist/lazyloading.cjs.js'\\); console.log\\(JSON.stringify\\(Object.keys\\(m\\)\\)\\)\")",
+      "Bash(node -e \"const L = require\\('./dist/lazyloading.cjs.min.js'\\); console.log\\('typeof:', typeof L, 'name:', L.name\\)\")",
+      "Bash(node scripts/fix-cjs-exports.js)",
+      "Bash(node scripts/copy-compat.js)",
+      "Bash(npm run *)",
+      "Bash(node -e \"const L = require\\('./lazyloading.cjs.js'\\); console.log\\('root cjs typeof:', typeof L, L.name\\)\")",
+      "Bash(node -e \"const L = require\\('./dist/lazyloading.cjs.js'\\); console.log\\('dist cjs typeof:', typeof L\\)\")",
+      "Bash(node -e \"import\\('./dist/lazyloading.esm.js'\\).then\\(m => console.log\\('esm typeof:', typeof m.default\\)\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(git -C /home/fernando/projects/vtex-lazyLoading mv scripts/fix-cjs-exports.js scripts/fix-default-export.js)",
+      "Bash(node -e \"const L = require\\('./lazyloading.min.js'.replace\\('.min',''\\)\\); \")",
+      "Bash(node -e \"const L = require\\('./lazyloading.cjs.js'\\); console.log\\('root cjs typeof:', typeof L\\)\")",
+      "Bash(node -e \"const L = require\\('./lazyloading.cjs.min.js'\\); console.log\\('root cjs.min typeof:', typeof L\\)\")",
+      "Bash(node -e \"import\\('./lazyloading.esm.js'\\).then\\(m => console.log\\('root esm typeof:', typeof m.default\\)\\)\")",
+      "Bash(npm pack *)",
+      "Bash(npm test *)"
+    ],
+    "additionalDirectories": [
+      "/home/fernando/projects/vtex-lazyLoading/docs/superpowers"
+    ]
+  }
+}
