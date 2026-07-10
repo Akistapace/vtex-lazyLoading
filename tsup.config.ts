@@ -1,0 +1,55 @@
+import { defineConfig } from 'tsup';
+
+export default defineConfig([
+  {
+    entry: { 'lazyloading.cjs': 'src/index.ts' },
+    format: 'cjs',
+    outDir: 'dist',
+    outExtension: () => ({ js: '.js' }),
+    cjsInterop: true,
+    minify: false,
+    sourcemap: true,
+    clean: true,
+  },
+  {
+    entry: { 'lazyloading.cjs.min': 'src/index.ts' },
+    format: 'cjs',
+    outDir: 'dist',
+    outExtension: () => ({ js: '.js' }),
+    cjsInterop: true,
+    minify: true,
+    sourcemap: true,
+  },
+  {
+    entry: { 'lazyloading.esm': 'src/index.ts' },
+    format: 'esm',
+    outDir: 'dist',
+    outExtension: () => ({ js: '.js' }),
+    minify: false,
+    sourcemap: true,
+  },
+  {
+    entry: { 'lazyloading.esm.min': 'src/index.ts' },
+    format: 'esm',
+    outDir: 'dist',
+    outExtension: () => ({ js: '.js' }),
+    minify: true,
+    sourcemap: true,
+  },
+  {
+    entry: { lazyloading: 'src/index.ts' },
+    format: 'iife',
+    globalName: 'VtexLazyload',
+    outDir: 'dist',
+    minify: false,
+    sourcemap: true,
+  },
+  {
+    entry: { 'lazyloading.min': 'src/index.ts' },
+    format: 'iife',
+    globalName: 'VtexLazyload',
+    outDir: 'dist',
+    minify: true,
+    sourcemap: true,
+  },
+]);
